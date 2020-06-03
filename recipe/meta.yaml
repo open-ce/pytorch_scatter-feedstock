@@ -13,8 +13,8 @@ source:
   sha256: db6c9eca919b86f3eb6102dd0e1215af72e39ed3a4e8d142e6a21d3f20d5c244
 
 build:
-  number: 0
-  skip: True  # [win]
+  number: 1
+  skip: True  # [win or py37]
 
 outputs:
   # A meta-package to select CPU or GPU pytorch_scatter build.
@@ -30,7 +30,7 @@ outputs:
   - name: pytorch_scatter
     version: {{ version }}
     build:
-      number: 0
+      number: 1
       script: python -m pip install . -vv
     requirements:
       build:
@@ -39,13 +39,13 @@ outputs:
         - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
       host:
         - python
-        - pytorch
+        - pytorch >=1.4
         - setuptools
         - pytest-runner
         - pip
       run:
         - python
-        - pytorch
+        - pytorch >=1.4
       run_constrained:
         - pytorch_scatter_proc * {{ pytorch_scatter_proc_type }}
     test:
