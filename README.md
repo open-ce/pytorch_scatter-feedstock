@@ -29,27 +29,6 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_cuda_compiler_version10.0python3.6.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9916&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_scatter-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_version10.0python3.6.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_cuda_compiler_version10.0python3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9916&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_scatter-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_version10.0python3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_cuda_compiler_version10.0python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9916&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_scatter-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_version10.0python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>linux_cuda_compiler_version10.1python3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9916&branchName=master">
@@ -113,27 +92,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>linux_cuda_compiler_versionNonepython3.6.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9916&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_scatter-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_versionNonepython3.6.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_cuda_compiler_versionNonepython3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9916&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_scatter-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_versionNonepython3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_cuda_compiler_versionNonepython3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9916&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_scatter-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_versionNonepython3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_python3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9916&branchName=master">
@@ -180,7 +138,6 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pytorch_scatter-green.svg)](https://anaconda.org/conda-forge/pytorch_scatter) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pytorch_scatter.svg)](https://anaconda.org/conda-forge/pytorch_scatter) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pytorch_scatter.svg)](https://anaconda.org/conda-forge/pytorch_scatter) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pytorch_scatter.svg)](https://anaconda.org/conda-forge/pytorch_scatter) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-pytorch_scatter_proc-green.svg)](https://anaconda.org/conda-forge/pytorch_scatter_proc) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pytorch_scatter_proc.svg)](https://anaconda.org/conda-forge/pytorch_scatter_proc) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pytorch_scatter_proc.svg)](https://anaconda.org/conda-forge/pytorch_scatter_proc) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pytorch_scatter_proc.svg)](https://anaconda.org/conda-forge/pytorch_scatter_proc) |
 
 Installing pytorch_scatter
 ==========================
@@ -191,10 +148,10 @@ Installing `pytorch_scatter` from the `conda-forge` channel can be achieved by a
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `pytorch_scatter, pytorch_scatter_proc` can be installed with:
+Once the `conda-forge` channel has been enabled, `pytorch_scatter` can be installed with:
 
 ```
-conda install pytorch_scatter pytorch_scatter_proc
+conda install pytorch_scatter
 ```
 
 It is possible to list all of the versions of `pytorch_scatter` available on your platform with:
