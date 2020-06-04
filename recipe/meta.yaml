@@ -14,7 +14,7 @@ build:
   skip: True  # [win]
   script: 
     - export FORCE_CUDA="1"  # [linux and cuda_compiler_version != "None"]
-    - export CUDA_HOME={{ PREFIX }}/cuda-{{ cuda_compiler_version }}
+    - export NVCC={{ CUDA_HOME }}/bin/nvcc
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
