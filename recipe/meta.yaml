@@ -15,8 +15,6 @@ build:
   script: 
     - export LD_LIBRARY_PATH={{ CUDA_HOME }}/lib64:{{ LD_LIBRARY_PATH }}
     - echo {{ LD_LIBRARY_PATH }}
-    - export DYLD_LIBRARY_PATH={{ CUDA_HOME }}/lib:{{ DYLD_LIBRARY_PATH }}
-    - echo {{ DYLD_LIBRARY_PATH }}
     - python -c "import torch; print(torch.version.cuda)"
     - nvcc --version
     - {{ PYTHON }} -m pip install . -vv
