@@ -15,6 +15,7 @@ build:
   script: 
     - which nvcc  # [linux and cuda_compiler_version != "None"]
     - export CUDA_HOME={{ PREFIX }}  # [linux and cuda_compiler_version != "None"]
+    - export CUDA_TOOLKIT_ROOT_DIR={{ PREFIX }}
     - export FORCE_CUDA="1"  # [linux and cuda_compiler_version != "None"]
     - {{ PYTHON }} -m pip install . -vv
 
