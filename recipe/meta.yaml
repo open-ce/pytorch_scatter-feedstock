@@ -13,6 +13,7 @@ build:
   number: 2
   skip: True  # [win]
   script: 
+    - export NVCC_FLAGS="-ccbin $(CXX)"
     - export LD_LIBRARY_PATH={{ CONDA_PREFIX }}/cuda/lib:{{ LD_LIBRARY_PATH }}
     - export FORCE_CUDA="1"  # [linux and cuda_compiler_version != "None"]
     - {{ PYTHON }} -m pip install . -vv
