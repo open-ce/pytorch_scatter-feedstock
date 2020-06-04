@@ -1,9 +1,6 @@
 {% set name = "torch_scatter" %}
 {% set version = "2.0.4" %}
 
-{% set pytorch_scatter_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [linux or win]
-{% set pytorch_scatter_proc_type = "cpu" %}                                                # [osx]
-
 package:
   name: py{{ name|lower }}
   version: {{ version }}
@@ -13,54 +10,29 @@ source:
   sha256: db6c9eca919b86f3eb6102dd0e1215af72e39ed3a4e8d142e6a21d3f20d5c244
 
 build:
-  number: 1
-  skip: True  # [win or py37]
+  number: 2
+  skip: True  # [win]
+  script: {{ PYTHON }} -m pip install . -vv
 
-outputs:
-  # A meta-package to select CPU or GPU pytorch_scatter build.
-  - name: pytorch_scatter_proc
-    version: 1.0.0
-    build:
-      number: 0
-      string: "{{ pytorch_scatter_proc_type }}"
-    test:
-      commands:
-        - exit 0
-
-  - name: pytorch_scatter
-    version: {{ version }}
-    build:
-      number: 1
-      script: python -m pip install . -vv
-    requirements:
-      build:
-        - {{ compiler('c') }}
-        - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
-      host:
-        - python
-        - pytorch >=1.4
-        - setuptools
-        - pytest-runner
-        - pip
-      run:
-        - python
-        - pytorch >=1.4
-      run_constrained:
-        - pytorch_scatter_proc * {{ pytorch_scatter_proc_type }}
-    test:
-      requires:
-        - pytest
-        - pytest-cov
-      imports:
-        - torch_scatter
-    about:
-      home: https://github.com/rusty1s/torch-scatter
-      summary: PyTorch Extension Library of Optimized Scatter Operations
-      license: MIT
-      license_file: LICENSE
-      dev_url: https://github.com/rusty1s/torch-scatter
-
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
+  host:
+    - python
+    - pytorch
+    - setuptools
+    - pytest-runner
+    - pip
+  run:
+    - python
+    - pytorch
+    - pytest
+    - pytest-cov
+test:
+  imports:
+    - torch_scatter
 about:
   home: https://github.com/rusty1s/torch-scatter
   summary: PyTorch Extension Library of Optimized Scatter Operations
