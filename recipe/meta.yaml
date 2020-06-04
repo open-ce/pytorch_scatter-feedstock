@@ -13,7 +13,6 @@ build:
   number: 2
   skip: True  # [win]
   script: 
-    - whereis cuda
     - export CUDA_HOME="/usr/local/cuda"  # [linux and cuda_compiler_version != "None"]
     - export FORCE_CUDA="1"  # [linux and cuda_compiler_version != "None"]
     - {{ PYTHON }} -m pip install . -vv
