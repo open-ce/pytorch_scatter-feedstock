@@ -13,10 +13,11 @@ build:
   number: 2
   skip: True  # [win]
   script: 
-    - export LD_LIBRARY_PATH={{ CUDA_HOME }}/lib64:{{ LD_LIBRARY_PATH }}
-    - echo {{ LD_LIBRARY_PATH }}
-    - python -c "import torch; print(torch.version.cuda)"
-    - nvcc --version
+    # Copied from the PyTorch build script
+    - export NCCL_ROOT_DIR=/usr/local/cuda
+    - export USE_STATIC_CUDNN=1
+    - export USE_STATIC_NCCL=1
+    - sed -i "s|{compiler-bindir}|${CC}|" setup.py
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
