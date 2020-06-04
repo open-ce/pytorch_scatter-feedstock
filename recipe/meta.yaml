@@ -13,8 +13,12 @@ build:
   number: 2
   skip: True  # [win]
   script: 
-    - export FORCE_CUDA="1"  # [linux and cuda_compiler_version != "None"]
-    - export NVCC={{ CUDA_HOME }}/bin/nvcc
+    - export LD_LIBRARY_PATH={{ CUDA_HOME }}/lib64:{{ LD_LIBRARY_PATH }}
+    - echo {{ LD_LIBRARY_PATH }}
+    - export DYLD_LIBRARY_PATH={{ CUDA_HOME }}/lib:{{ DYLD_LIBRARY_PATH }}
+    - echo {{ DYLD_LIBRARY_PATH }}
+    - python -c "import torch; print(torch.version.cuda)"
+    - nvcc --version
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
