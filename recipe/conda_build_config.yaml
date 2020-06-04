@@ -1,0 +1,5 @@
+cuda_compiler_version:
+  - None                # [not linux64]
+  - 9.2                 # [linux64]
+  - 10.1                # [linux64]
+  - 10.2                # [linux64]
