@@ -13,8 +13,7 @@ build:
   number: 2
   skip: True  # [win]
   script: 
-    - echo {{ CUDA_ROOT }}
-    - export CUDA_HOME={{ CUDA_ROOT }}  # [linux and cuda_compiler_version != "None"]
+    - export CUDA_HOME="/usr/local/cuda-10.1"  # [linux and cuda_compiler_version != "None"]
     - export FORCE_CUDA="1"  # [linux and cuda_compiler_version != "None"]
     - {{ PYTHON }} -m pip install . -vv
 
