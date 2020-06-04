@@ -13,10 +13,10 @@ build:
   number: 2
   skip: True  # [win]
   script: 
+    - export CUDA_HOME="/usr/local/cuda"
+    - export NVCC="$CUDA_HOME/bin/nvcc"
+    - export NVCC_FLAGS="--compiler-bindir $compiler-bindir"
     - {{ PYTHON }} -m pip install . -vv
-  ignore_run_exports:
-    - cudatoolkit
-    - pytorch
 
 requirements:
   build:
