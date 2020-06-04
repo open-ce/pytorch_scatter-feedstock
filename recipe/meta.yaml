@@ -13,6 +13,7 @@ build:
   number: 2
   skip: True  # [win]
   script: 
+    - export LD_LIBRARY_PATH={{ CONDA_PREFIX }}/cuda/lib:{{ LD_LIBRARY_PATH }}
     - export FORCE_CUDA="1"  # [linux and cuda_compiler_version != "None"]
     - {{ PYTHON }} -m pip install . -vv
 
@@ -20,6 +21,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
   host:
     - python
     - pytorch
