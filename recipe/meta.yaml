@@ -11,10 +11,12 @@ source:
 
 build:
   number: 2
-  skip: True  # [win]
+  # Skip windows for now
+  skip: True  # [win]   
+  # Skip gpu builds for now
+  skip: True  # [cuda_compiler_version != "None"]
   script:
-    - export CUDA_HOME="/opt/cuda"
-    - export FORCE_CUDA="1"
+    - export FORCE_CPU="1"
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
