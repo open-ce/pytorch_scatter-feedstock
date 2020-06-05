@@ -16,7 +16,6 @@ build:
   # Skip gpu builds for now
   skip: True  # [cuda_compiler_version != "None"]
   script:
-    - export FORCE_CPU="1"
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
