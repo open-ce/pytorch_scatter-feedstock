@@ -12,7 +12,9 @@ source:
 build:
   number: 2
   skip: True  # [win]
-  script: 
+  script:
+    - export CUDA_HOME="/opt/cuda"
+    - export FORCE_CUDA="1"
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -22,16 +24,15 @@ requirements:
     - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != 'None']
   host:
     - python
+    - pip
     - pytorch
     - setuptools
     - pytest-runner
-    - pip
   run:
     - python
     - pytorch
     - pytest
     - pytest-cov
-    - {{ pin_compatible('cudatoolkit', max_pin='x.x') }}  # [linux and cuda_compiler_version != 'None']
 test:
   imports:
     - torch_scatter
