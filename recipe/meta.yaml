@@ -31,7 +31,7 @@ requirements:
     - pytorch
     - pytest
     - pytest-cov
-    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != 'None']
+    - {{ pin_compatible('cudatoolkit', max_pin='x.x') }}  # [linux and cuda_compiler_version != 'None']
 test:
   imports:
     - torch_scatter
