@@ -34,7 +34,7 @@ requirements:
     - python
     - pytest
     - pytest-cov
-    - pytorch * *{{ proc_type }}
+    - pytorch-cpu
 test:
   imports:
     - torch_scatter
