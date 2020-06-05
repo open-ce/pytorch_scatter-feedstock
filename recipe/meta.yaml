@@ -20,13 +20,13 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
-    - pytorch-cpu
+    - pytorch
     - setuptools
     - pytest-runner
     - pip
   run:
     - python
-    - pytorch-cpu
+    - pytorch
     - pytest
     - pytest-cov
 test:
