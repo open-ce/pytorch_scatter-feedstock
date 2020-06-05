@@ -12,12 +12,14 @@ source:
 build:
   number: 2
   skip: True  # [win]
-  script: {{ PYTHON }} -m pip install . -vv
+  script: 
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != 'None']
   host:
     - python
     - pytorch
@@ -29,6 +31,7 @@ requirements:
     - pytorch
     - pytest
     - pytest-cov
+    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != 'None']
 test:
   imports:
     - torch_scatter
