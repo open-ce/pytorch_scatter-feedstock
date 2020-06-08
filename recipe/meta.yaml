@@ -1,6 +1,5 @@
 {% set name = "torch_scatter" %}
 {% set version = "2.0.4" %}
-{% set proc_type = "gpu" if cuda_compiler_version != "None" else "cpu" %}
 
 package:
   name: py{{ name|lower }}
@@ -11,19 +10,15 @@ source:
   sha256: db6c9eca919b86f3eb6102dd0e1215af72e39ed3a4e8d142e6a21d3f20d5c244
 
 build:
-  number: 2
-  # Skip windows for now
-  skip: True  # [win]   
-  # Skip gpu builds for now
-  skip: True  # [cuda_compiler_version != "None"]
-  script:
-    - {{ PYTHON }} -m pip install . -vv
+  number: 0
+  skip: true  # [win]
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}  # [cuda_compiler_version != 'None']
+    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != 'None']
   host:
     - python
     - pip
@@ -32,10 +27,12 @@ requirements:
     - pytest-runner
   run:
     - python
+    - pytorch
     - pytest
     - pytest-cov
-    - pytorch-cpu
 test:
+  requires:
+    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != 'None']
   imports:
     - torch_scatter
 about:
