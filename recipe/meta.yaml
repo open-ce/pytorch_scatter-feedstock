@@ -16,8 +16,7 @@ build:
   skip: true  # [win]
   script:
     - export FORCE_CUDA="1"
-    - export TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0+PTX"
-    - export NVCC_FLAGS="-Xfatbin -compress-all"
+    - export NVCC_FLAGS="-DCUDA_HOST_COMPILER=${CC}"
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
