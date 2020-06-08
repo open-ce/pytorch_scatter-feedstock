@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [win or cuda_compiler_version == '10.2']
+  skip: true  # [win or cuda_compiler_version == 'None']
   script:
     - export FORCE_CUDA="1"    # [linux and cuda_compiler_version != 'None']
     - export CC="$GCC"   # [linux and cuda_compiler_version != 'None']
