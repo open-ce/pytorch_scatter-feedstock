@@ -13,16 +13,16 @@ build:
   number: 0
   skip: true  # [win or cuda_compiler_version == 'None']
   script:
-    - export FORCE_CUDA="1"    # [linux and cuda_compiler_version != 'None']
-    - export CC="$GCC"   # [linux and cuda_compiler_version != 'None']
-    - export NVCC_FLAGS="--compiler-bindir=${CC}"    # [linux and cuda_compiler_version != 'None']
+    - export FORCE_CUDA="1"    # [linux and cuda_compiler_version != '10.2']
+    - export CC="$GCC"   # [linux and cuda_compiler_version != '10.2']
+    - export NVCC_FLAGS="--compiler-bindir=${CC}"    # [linux and cuda_compiler_version != '10.2']
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != 'None']
+    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != '10.2']
   host:
     - python
     - pip
