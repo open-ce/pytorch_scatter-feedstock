@@ -16,6 +16,7 @@ build:
   skip: true  # [win]
   script:
     - export FORCE_CUDA="1"
+    - export CC=${PREFIX}/bin/gcc
     - export NVCC_FLAGS="-DCUDA_HOST_COMPILER=${CC}"
     - {{ PYTHON }} -m pip install . -vv
 
