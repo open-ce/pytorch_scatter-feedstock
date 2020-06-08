@@ -16,7 +16,7 @@ build:
   skip: true  # [win]
   script:
     - export FORCE_CUDA="1"    # [linux and cuda_compiler_version != 'None']
-    - export CC=${BUILD_PREFIX}/bin/gcc    # [linux and cuda_compiler_version != 'None']
+    - export CC="$GCC"   # [linux and cuda_compiler_version != 'None']
     - export NVCC_FLAGS="-DCUDA_HOST_COMPILER=${CC}"    # [linux and cuda_compiler_version != 'None']
     - {{ PYTHON }} -m pip install . -vv
 
