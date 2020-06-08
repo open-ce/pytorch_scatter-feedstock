@@ -14,7 +14,11 @@ source:
 build:
   number: 0
   skip: true  # [win]
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - export TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0+PTX"
+    - export NVCC_FLAGS="-Xfatbin -compress-all"
+    - export CMAKE_PREFIX_PATH="$(dirname $(which conda))/../"
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
