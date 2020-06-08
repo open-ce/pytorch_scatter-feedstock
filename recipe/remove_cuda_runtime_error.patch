@@ -1,0 +1,19 @@
+diff --git a/torch_scatter/__init__.py b/torch_scatter/__init__.py
+index 2277cf1..f37659c 100644
+--- a/torch_scatter/__init__.py
++++ b/torch_scatter/__init__.py
+@@ -50,14 +50,6 @@ if torch.version.cuda is not None:  # pragma: no cover
+         major, minor = int(str(cuda_version)[0:2]), int(str(cuda_version)[3])
+     t_major, t_minor = [int(x) for x in torch.version.cuda.split('.')]
+ 
+-    if t_major != major or t_minor != minor:
+-        raise RuntimeError(
+-            f'Detected that PyTorch and torch_scatter were compiled with '
+-            f'different CUDA versions. PyTorch has CUDA version '
+-            f'{t_major}.{t_minor} and torch_scatter has CUDA version '
+-            f'{major}.{minor}. Please reinstall the torch_scatter that '
+-            f'matches your PyTorch install.')
+-
+ from .scatter import (scatter_sum, scatter_add, scatter_mean, scatter_min,
+                       scatter_max, scatter)  # noqa
+ from .segment_csr import (segment_sum_csr, segment_add_csr, segment_mean_csr,
