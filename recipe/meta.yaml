@@ -31,8 +31,6 @@ requirements:
     - pytest
     - pytest-cov
 test:
-  requires:
-    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != 'None']
   imports:
     - torch_scatter
 about:
