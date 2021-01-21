@@ -33,7 +33,7 @@ requirements:
   run:
     - python
     - pytorch
-    - {{ pin_compatible('pytorch-gpu') }} # [cuda_compiler_version not in (undefined, 'None')]
+    - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
     - {{ pin_compatible('pytorch-cpu') }}  # [osx]
     - pytest
     - pytest-cov
