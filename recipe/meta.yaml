@@ -32,6 +32,7 @@ requirements:
     - pytest-runner
   run:
     - python
+    - pytorch
     - {{ pin_compatibl('pytorch-gpu')}} # [cuda_compiler_version not in (undefined, 'None')]
     - {{ pin_compatibl('pytorch-cpu')}}  # [osx]
     - pytest
