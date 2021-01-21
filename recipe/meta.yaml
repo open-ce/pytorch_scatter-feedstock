@@ -26,12 +26,14 @@ requirements:
   host:
     - python
     - pip
-    - pytorch
+    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
+    - pytorch-cpu  # [osx]
     - setuptools
     - pytest-runner
   run:
-    - python-cpu  # [osx]
-    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
+    - python
+    - {{ pin_compatibl('pytorch-gpu')}} # [cuda_compiler_version not in (undefined, 'None')]
+    - {{ pin_compatibl('pytorch-cpu')}}  # [osx]
     - pytest
     - pytest-cov
 test:
