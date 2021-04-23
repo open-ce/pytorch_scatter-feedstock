@@ -11,29 +11,29 @@ source:
 
 build:
   number: 1
-  skip: true  # [win or cuda_compiler_version == '10.2']
+  skip: true  # [win or (linux and cuda_compiler_version == '10.2')]
   script:
-    - export FORCE_CUDA="1"    # [linux]
-    - export CC="$GCC"   # [linux]
+    - export FORCE_CUDA="1"    # [linux and cuda_compiler_version not in (undefined, 'None')]
+    - export CC="$GCC"   # [linux and cuda_compiler_version not in (undefined, 'None')]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}  # [linux]
+    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version not in (undefined, 'None')]
   host:
     - python
     - pip
-    - pytorch-gpu  # [linux]
-    - pytorch-cpu  # [osx]
+    - pytorch-gpu  # [linux and cuda_compiler_version not in (undefined, 'None')]
+    - pytorch-cpu
     - setuptools
     - pytest-runner
   run:
     - python
     - pytorch
-    - {{ pin_compatible('pytorch-gpu') }}  # [linux]
-    - {{ pin_compatible('pytorch-cpu') }}  # [osx]
+    - {{ pin_compatible('pytorch-gpu') }}  # [linux and cuda_compiler_version not in (undefined, 'None')]
+    - {{ pin_compatible('pytorch-cpu') }}
     - pytest
     - pytest-cov
 test:
