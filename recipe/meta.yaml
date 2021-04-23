@@ -11,38 +11,40 @@ source:
 
 build:
   number: 0
-  skip: true  # [win or cuda_compiler_version == 'None' or cuda_compiler_version == '10.2']
+  skip: true  # [win]
   script:
-    - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version != 'None']
-    - export CC="$GCC"   # [linux64 and cuda_compiler_version != 'None']
-    - export NVCC_FLAGS="--compiler-bindir=${CC}"    # [linux64 and cuda_compiler_version != 'None']
+    - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version not in (undefined, 'None')]
+    - export CC="$GCC"   # [linux64 and cuda_compiler_version not in (undefined, 'None')]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != 'None']
+    - {{ compiler('cuda') }}  # [cuda_compiler_version not in (undefined, 'None')]
   host:
     - python
     - pip
-    - pytorch
+    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
+    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
     - setuptools
     - pytest-runner
   run:
     - python
     - pytorch
+    - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
+    - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
     - pytest
     - pytest-cov
 test:
   imports:
     - torch_scatter
 about:
-  home: https://github.com/rusty1s/torch-scatter
+  home: https://github.com/rusty1s/pytorch_scatter
   summary: PyTorch Extension Library of Optimized Scatter Operations
   license: MIT
   license_file: LICENSE
-  dev_url: https://github.com/rusty1s/torch-scatter
+  dev_url: https://github.com/rusty1s/pytorch_scatter
 
 extra:
   recipe-maintainers:
