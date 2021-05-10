@@ -3,6 +3,5 @@ c_compiler_version:
 cxx_compiler_version:
 - '7'                 # [linux]
 pytorch:
-- 1.6
 - 1.7
 - 1.8
