@@ -27,15 +27,12 @@ requirements:
     - pip
     - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
     - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
-    - setuptools
     - pytest-runner
   run:
     - python
     - pytorch
     - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
     - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
-    - pytest
-    - pytest-cov
 test:
   imports:
     - torch_scatter
