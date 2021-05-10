@@ -8,84 +8,244 @@ jobs:
     vmImage: ubuntu-16.04
   strategy:
     matrix:
-      linux_64_cuda_compiler_version10.2python3.6.____cpython:
-        CONFIG: linux_64_cuda_compiler_version10.2python3.6.____cpython
+      linux_64_cuda_compiler_version10.2python3.6.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.6.____cpythonpytorch1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
-      linux_64_cuda_compiler_version10.2python3.7.____cpython:
-        CONFIG: linux_64_cuda_compiler_version10.2python3.7.____cpython
+      linux_64_cuda_compiler_version10.2python3.6.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.6.____cpythonpytorch1.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
-      linux_64_cuda_compiler_version10.2python3.8.____cpython:
-        CONFIG: linux_64_cuda_compiler_version10.2python3.8.____cpython
+      linux_64_cuda_compiler_version10.2python3.6.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.6.____cpythonpytorch1.8
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
-      linux_64_cuda_compiler_version10.2python3.9.____cpython:
-        CONFIG: linux_64_cuda_compiler_version10.2python3.9.____cpython
+      linux_64_cuda_compiler_version10.2python3.7.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.7.____cpythonpytorch1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
-      linux_64_cuda_compiler_version11.0python3.6.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.0python3.6.____cpython
+      linux_64_cuda_compiler_version10.2python3.7.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.7.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
+      linux_64_cuda_compiler_version10.2python3.7.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.7.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
+      linux_64_cuda_compiler_version10.2python3.8.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.8.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
+      linux_64_cuda_compiler_version10.2python3.8.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.8.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
+      linux_64_cuda_compiler_version10.2python3.8.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.8.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
+      linux_64_cuda_compiler_version10.2python3.9.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.9.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
+      linux_64_cuda_compiler_version10.2python3.9.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.9.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
+      linux_64_cuda_compiler_version10.2python3.9.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version10.2python3.9.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
+      linux_64_cuda_compiler_version11.0python3.6.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.6.____cpythonpytorch1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
-      linux_64_cuda_compiler_version11.0python3.7.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.0python3.7.____cpython
+      linux_64_cuda_compiler_version11.0python3.6.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.6.____cpythonpytorch1.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
-      linux_64_cuda_compiler_version11.0python3.8.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.0python3.8.____cpython
+      linux_64_cuda_compiler_version11.0python3.6.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.6.____cpythonpytorch1.8
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
-      linux_64_cuda_compiler_version11.0python3.9.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.0python3.9.____cpython
+      linux_64_cuda_compiler_version11.0python3.7.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.7.____cpythonpytorch1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
-      linux_64_cuda_compiler_version11.1python3.6.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.1python3.6.____cpython
+      linux_64_cuda_compiler_version11.0python3.7.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.7.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cuda_compiler_version11.0python3.7.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.7.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cuda_compiler_version11.0python3.8.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.8.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cuda_compiler_version11.0python3.8.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.8.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cuda_compiler_version11.0python3.8.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.8.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cuda_compiler_version11.0python3.9.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.9.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cuda_compiler_version11.0python3.9.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.9.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cuda_compiler_version11.0python3.9.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.0python3.9.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cuda_compiler_version11.1python3.6.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.6.____cpythonpytorch1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
-      linux_64_cuda_compiler_version11.1python3.7.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.1python3.7.____cpython
+      linux_64_cuda_compiler_version11.1python3.6.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.6.____cpythonpytorch1.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
-      linux_64_cuda_compiler_version11.1python3.8.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.1python3.8.____cpython
+      linux_64_cuda_compiler_version11.1python3.6.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.6.____cpythonpytorch1.8
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
-      linux_64_cuda_compiler_version11.1python3.9.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.1python3.9.____cpython
+      linux_64_cuda_compiler_version11.1python3.7.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.7.____cpythonpytorch1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
-      linux_64_cuda_compiler_version11.2python3.6.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.2python3.6.____cpython
+      linux_64_cuda_compiler_version11.1python3.7.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.7.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
+      linux_64_cuda_compiler_version11.1python3.7.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.7.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
+      linux_64_cuda_compiler_version11.1python3.8.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.8.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
+      linux_64_cuda_compiler_version11.1python3.8.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.8.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
+      linux_64_cuda_compiler_version11.1python3.8.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.8.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
+      linux_64_cuda_compiler_version11.1python3.9.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.9.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
+      linux_64_cuda_compiler_version11.1python3.9.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.9.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
+      linux_64_cuda_compiler_version11.1python3.9.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.1python3.9.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.1
+      linux_64_cuda_compiler_version11.2python3.6.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.6.____cpythonpytorch1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
-      linux_64_cuda_compiler_version11.2python3.7.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.2python3.7.____cpython
+      linux_64_cuda_compiler_version11.2python3.6.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.6.____cpythonpytorch1.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
-      linux_64_cuda_compiler_version11.2python3.8.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.2python3.8.____cpython
+      linux_64_cuda_compiler_version11.2python3.6.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.6.____cpythonpytorch1.8
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
-      linux_64_cuda_compiler_version11.2python3.9.____cpython:
-        CONFIG: linux_64_cuda_compiler_version11.2python3.9.____cpython
+      linux_64_cuda_compiler_version11.2python3.7.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.7.____cpythonpytorch1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
-      linux_64_cuda_compiler_versionNonepython3.6.____cpython:
-        CONFIG: linux_64_cuda_compiler_versionNonepython3.6.____cpython
+      linux_64_cuda_compiler_version11.2python3.7.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.7.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
+      linux_64_cuda_compiler_version11.2python3.7.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.7.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
+      linux_64_cuda_compiler_version11.2python3.8.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.8.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
+      linux_64_cuda_compiler_version11.2python3.8.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.8.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
+      linux_64_cuda_compiler_version11.2python3.8.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.8.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
+      linux_64_cuda_compiler_version11.2python3.9.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.9.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
+      linux_64_cuda_compiler_version11.2python3.9.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.9.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
+      linux_64_cuda_compiler_version11.2python3.9.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_version11.2python3.9.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.2
+      linux_64_cuda_compiler_versionNonepython3.6.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.6.____cpythonpytorch1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_cuda_compiler_versionNonepython3.7.____cpython:
-        CONFIG: linux_64_cuda_compiler_versionNonepython3.7.____cpython
+      linux_64_cuda_compiler_versionNonepython3.6.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.6.____cpythonpytorch1.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_cuda_compiler_versionNonepython3.8.____cpython:
-        CONFIG: linux_64_cuda_compiler_versionNonepython3.8.____cpython
+      linux_64_cuda_compiler_versionNonepython3.6.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.6.____cpythonpytorch1.8
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_cuda_compiler_versionNonepython3.9.____cpython:
-        CONFIG: linux_64_cuda_compiler_versionNonepython3.9.____cpython
+      linux_64_cuda_compiler_versionNonepython3.7.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.7.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+      linux_64_cuda_compiler_versionNonepython3.7.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.7.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+      linux_64_cuda_compiler_versionNonepython3.7.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.7.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+      linux_64_cuda_compiler_versionNonepython3.8.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.8.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+      linux_64_cuda_compiler_versionNonepython3.8.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.8.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+      linux_64_cuda_compiler_versionNonepython3.8.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.8.____cpythonpytorch1.8
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+      linux_64_cuda_compiler_versionNonepython3.9.____cpythonpytorch1.6:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.9.____cpythonpytorch1.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+      linux_64_cuda_compiler_versionNonepython3.9.____cpythonpytorch1.7:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.9.____cpythonpytorch1.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+      linux_64_cuda_compiler_versionNonepython3.9.____cpythonpytorch1.8:
+        CONFIG: linux_64_cuda_compiler_versionNonepython3.9.____cpythonpytorch1.8
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
   timeoutInMinutes: 360
