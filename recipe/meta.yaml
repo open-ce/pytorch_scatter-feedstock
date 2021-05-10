@@ -25,14 +25,15 @@ requirements:
   host:
     - python
     - pip
+    - pytorch
     - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
     - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
     - pytest-runner
   run:
     - python
-    - pytorch
-    - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
-    - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
+    - {{ pin_compatible('pytorch', max_pin='x.x') }}
+    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
+    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
 test:
   imports:
     - torch_scatter
