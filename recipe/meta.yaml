@@ -39,7 +39,6 @@ requirements:
     - pytest-runner
   run:
     - python
-    - pytorch
   run_constrained:
     # 2022/02/05 hmaarrfk
     # While conda packaging seems to allow us to specify
