@@ -1,5 +1,7 @@
 {% set name = "torch_scatter" %}
-{% set version = "2.0.7" %}
+{% set version = "2.0.8" %}
+# see github.com/conda-forge/conda-forge.github.io/issues/1059 for naming discussion
+{% set torch_proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
 package:
   name: py{{ name|lower }}
@@ -7,10 +9,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 369184948c838f756eea10464a3fbf8e103e22dc94d7045dbab85b5748bf85f9
+  sha256: d71aab489b5288a6c96e9f9a7c9e13c54774dcb55a99a40e6cd1aca8be9ef3e6
 
 build:
-  number: 1
+  number: 0
+  string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
+  string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}                                      # [cuda_compiler_version == "None"]
   skip: true  # [win]
   script:
     - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version not in (undefined, 'None')]
@@ -19,27 +23,34 @@ build:
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - pytorch 1.8                            # [build_platform != target_platform]
-    - pytorch-cpu                            # [build_platform != target_platform and osx or cuda_compiler_version in (undefined, 'None')]
-    - pytorch-gpu                            # [build_platform != target_platform and cuda_compiler_version not in (undefined, 'None')]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}  # [cuda_compiler_version not in (undefined, 'None')]
+    - {{ compiler('cuda') }}                 # [cuda_compiler_version not in (undefined, 'None')]
+    - sysroot_linux-64 ==2.17                # [linux64]
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - pytorch                                # [build_platform != target_platform]
+    - pytorch =*={{ torch_proc_type }}*      # [build_platform != target_platform]
   host:
     - python
     - pip
-    # pytorch 1.8 is the latest supported version of conda-forge at build time
-    - pytorch 1.8
-    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
-    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
+    - pytorch
+    - pytorch =*={{ torch_proc_type }}*
     - pytest-runner
   run:
     - python
-    - {{ pin_compatible('pytorch', max_pin='x.x.x') }}
-    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
-    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
+  run_constrained:
+    # 2022/02/05 hmaarrfk
+    # While conda packaging seems to allow us to specify
+    # constraints on the same package in different lines
+    # the resulting package doesn't have the ability to
+    # be specified in multiples lines
+    # This makes it tricky to use run_exports
+    # we add the GPU constraint in the run_constrained
+    # to allow us to have "two" constraints on the
+    # running package
+    - pytorch =*={{ torch_proc_type }}*
+
 test:
   imports:
     - torch_scatter
@@ -58,3 +69,4 @@ extra:
     - oblute
     - ndmaxar
     - benjaminrwilson
+    - Tobias-Fischer
