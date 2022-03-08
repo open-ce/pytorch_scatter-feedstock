@@ -34,12 +34,12 @@ requirements:
     - sysroot_linux-64 ==2.17                # [linux64]
     - python {{ python }}                            # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - pytorch-base {{ pytorch }}                               # [build_platform != target_platform]
+    - pytorch-base {{ pytorch }}                              # [build_platform != target_platform]
     - pytorch =*={{ torch_proc_type }}*      # [build_platform != target_platform]
   host:
     - python {{ python }}
     - pip
-    - pytorch-base  {{ pytorch }}
+    - pytorch-base {{ pytorch }} 
     - pytorch =*={{ torch_proc_type }}*
     - pytest-runner
   run:
