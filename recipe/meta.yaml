@@ -10,13 +10,13 @@ source:
   sha256: d71aab489b5288a6c96e9f9a7c9e13c54774dcb55a99a40e6cd1aca8be9ef3e6
 
 build:
-  number: 2
-  string: h{{ PKG_HASH }}_{{ build_type }}_py{{ python | replace(".", "") }}_pb{{ protobuf | replace(".*", "")}}_{{ PKG_BUILDNUM }} #[build_type == 'cpu']
-  string: h{{ PKG_HASH }}_{{ build_type }}{{ cudatoolkit | replace(".*", "") }}_py{{ python | replace(".", "") }}_pb{{ protobuf | replace(".*", "")}}_{{ PKG_BUILDNUM }} #[build_type == 'cuda']
+  number: 1
+  string: {{ build_type }}_py{{ python | replace(".", "") }}_{{ PKG_BUILDNUM }} #[build_type == 'cpu']
+  string: {{ build_type }}{{ cudatoolkit | replace(".*", "") }}_py{{ python | replace(".", "") }}_{{ PKG_BUILDNUM }} #[build_type == 'cuda']
   skip: true  # [win]
   script:
-    - export FORCE_CUDA="1"    # [linux64 and cudatoolkit  not in (undefined, 'None')]
-    - export CC="$GCC"         # [linux64 and cudatoolkit  not in (undefined, 'None')]
+    - export FORCE_CUDA="1"    # [linux64 and cudatoolkit == 'cuda']
+    - export CC="$GCC"         # [linux64 and cudatoolkit == 'cuda']
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
